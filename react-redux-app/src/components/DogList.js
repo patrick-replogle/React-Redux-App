@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
+import { fetchDogs } from "../actions";
 import Dog from "./Dog";
 
 const DogList = props => {
+  useEffect(() => {
+    props.fetchDogs();
+  }, []);
+
   if (props.isFetching) {
     return <h2>Loading Dog Pictures...</h2>;
   }
+
   return (
     <div className="dogListContainer">
       {props.error && <p>{props.error}</p>}
@@ -26,4 +32,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(DogList);
+export default connect(mapStateToProps, { fetchDogs })(DogList);
