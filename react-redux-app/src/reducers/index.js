@@ -1,13 +1,7 @@
-import {
-  START_FETCHING,
-  FETCH_SUCCESS,
-  FETCH_FAILURE,
-  UPDATE_BREED
-} from "../actions";
+import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE } from "../actions";
 
 const initialState = {
   dogs: [],
-  breed: "husky",
   isFetching: false,
   error: ""
 };
@@ -32,11 +26,6 @@ export const rootReducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
         isFetching: false
-      };
-    case UPDATE_BREED:
-      return {
-        ...state,
-        breed: action.payload
       };
     default:
       return state;

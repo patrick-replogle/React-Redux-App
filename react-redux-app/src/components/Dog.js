@@ -1,7 +1,11 @@
 import React from "react";
 
 const Dog = props => {
-  return <div className="dogCard"></div>;
+  return (
+    <>
+      <img src={props.dog} alt="doggos" />
+    </>
+  );
 };
 
 export default Dog;
